@@ -1,66 +1,59 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# firearmland
+Laravel 10 Modular
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+## Create bash aliases
 
-## About Laravel
+_This is not required, but will make your life a lot easier, and is assumed in
+the rest of the documentation._
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+- Go to your root directory. (Path: `~/`).
+- Press `CMD + Shift + .` to show hidden files.
+- Open your bash file. This will be called either `~/.bashrc` or `.zshrc`
+  depending on which terminal you use.
+- Add `alias sail="./vendor/bin/sail"` and
+  `alias art="./vendor/bin/sail artisan"` to the file.
+- Restart your terminal.
+- Now you can call those commands as `sail` and `art` in your terminal, instead
+  of having to write the full command.
+- Example: Use `sail up` to spin up your docker containers instead of
+  `./vendor/bin/sail up`.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## Things To Know
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+### Larave Sail
 
-## Learning Laravel
+Laravel Sail is your bridge into the app container. If you run a command and it
+doesn't work, try prefixing it with `sail`. For instance, to install a PHP
+package you use the `composer` package manager.
+`composer require <package-name>` won't work because you are running it on your
+local machine. You need to use `sail composer require <package-name>`.
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+### Front End (Inertia + React + Tailwind)
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+React + Tailwind are already installed. You will find your React components in
+the `/resources/js` under a typical `Components`, `Layouts`, and `Pages` folder
+structure.
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+Inertia is a package that allows you to use React in your application, and it is
+doing some magic behind the scenes.
+[Inertia - How it works](https://inertiajs.com/how-it-works)  
 
-## Laravel Sponsors
+# Local Environment Installation 
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+- Clone the repository
+- cd {Root-Folder}
+- composer install
+- npm install
+- php artisan key:generate
+- copy .env.example to .env -> modify the file to fit to your local server
+- ./vendor/bin/sail up -> wait for the build to fisnish
+- ./vendor/bin/sail artisan migrate:fresh --seed
+- npm run dev
+- Open the browser and browse to localhost
 
-### Premium Partners
+# How to connect to mysql
+- cd {Root-Folder}
+- ./vendor/bin/sail mysql
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
-
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+# Modular 
+- Full documentation [here] (https://laravelmodules.com/) 
